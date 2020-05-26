@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
             //移除用户session信息，防止别人使用登录过的session
             session.removeAttribute("user");
             request.setAttribute("login_msg", "用户名或密码错误!");
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
 

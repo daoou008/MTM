@@ -20,17 +20,18 @@ public class ModStoreServlet extends HttpServlet {
         //设置编码，防止乱码
         request.setCharacterEncoding("utf-8");
         //判断，如果不是从登陆页面来，并且用户信息不正确，则返回到登录页面
-        HttpSession session = request.getSession();
+        //此功能现用过滤器实现
+        /*HttpSession session = request.getSession();
         try {
             Object user = session.getAttribute("user");
             if (user == null) {
-                response.sendRedirect("/index.jsp");
+                response.sendRedirect("/login.jsp");
                 return;
             }
         } catch (Exception e) {
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("/login.jsp");
             return;
-        }
+        }*/
 
         //调用modStore service完成查询
         SearchService service = new SearchServiceImpl();
