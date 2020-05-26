@@ -8,7 +8,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
-    <title>首页</title>
+    <title>登录</title>
 </head>
 <body>
 <div class="container" style="max-width: 500px" >
