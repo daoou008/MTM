@@ -7,19 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
+    <%--<script src="js/jquery-migrate-1.2.1.min.js"></script>--%>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript"></script>
     <title>查询模块库存</title>
     <script>
         //定义按钮，让对应模块可以动画折叠
-        function divTog(obj) {
+/*        function divTog(obj) {
             $(obj).next().toggle("slow");
             if ($(obj).prop("src").endsWith("narrow.png")) {
                 $(obj).prop("src", "img/expand.png");
             } else {
                 $(obj).prop("src", "img/narrow.png");
             }
-        }
+        }*/
+        $(function() {
+           /*$("[name='imgExpand']").toggle(function () {
+               $(this).prop("src", "img/expand.png");
+           }, function () {
+               $(this).prop("src", "img/narrow.png");
+           });
+           $(this).next().toggle("slow");*/
+            $("[name='imgExpand']").click(function () {
+                $(this).next().toggle("slow", "linear");
+                if ($(this).prop("src").endsWith("narrow.png")) {
+                    $(this).prop("src", "img/expand.png");
+                } else {
+                    $(this).prop("src", "img/narrow.png");
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -30,7 +47,7 @@
 
 <div id="div1" class="container">
     <h3>模块库存信息</h3>
-    <img src="img/expand.png" onclick="divTog(this);" style="margin-bottom: 5px">
+    <img name="imgExpand" src="img/expand.png" style="margin-bottom: 5px">
     <div>
         <table class="table table-hover table-striped table-bordered">
             <tr class="success">
@@ -57,7 +74,7 @@
 
 <div id="div2" class="container">
     <h3>客户信息</h3>
-    <img src="img/expand.png" onclick="divTog(this);" style="margin-bottom: 5px">
+    <img name="imgExpand" src="img/expand.png" style="margin-bottom: 5px">
     <div>
         <table class="table table-hover table-striped table-bordered">
             <tr class="success">
@@ -84,7 +101,7 @@
 
 <div id="div3" class="container">
     <h3>客户可用库存信息</h3>
-    <img src="img/expand.png" onclick="divTog(this);" style="float: top" style="margin-bottom: 10px">
+    <img name="imgExpand" src="img/expand.png" style="margin-bottom: 10px">
     <div style="float: bottom">
         <div style="float: left">
             <form class="form-inline" action="${pageContext.request.contextPath}/modStore" method="post">
